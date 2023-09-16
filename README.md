@@ -4,28 +4,20 @@
 
 Node, Express, MongoDB, Mongoose, JWT
 
-# [**ENROL IN THE COURSE**](https://www.udemy.com/course/nodejs-api-complete-guide-by-building-blog-application-api/?couponCode=BLACK-FRIDAY-LUNCH)
-
 # API FEATURES
 
 - Authentication & Authorization
 - Post CRUD operations
-- Comment functionality
-- System blocking user if inactive for 30 days
-- Admin can block a user
 - A user can block different users
-- A user who block another user cannot see his/her posts
+- A user who block another user cannot see posts
 - Last date a post was created
 - Check if a user is active or not
 - Check last date a user was active
-- Changing user award base on number of posts created by the user
 - A user can follow and unfollow another user
 - Get following and followers count
 - Get total profile viewers count
 - Get posts created count
 - Get blocked counts
-- Get all users who views someone's profile
-- Admin can unblock a blocked user
 - Update password
 - Profile photo uploaded
 - A user can close his/her account
@@ -48,8 +40,6 @@ Node, Express, MongoDB, Mongoose, JWT
   - [Update your profile](#Update-your-profile)
   - [Block another user](#Block-user)
   - [Unblock another user](#Unblock-user)
-  - [Admin blocking a user](#Admin-blocking-a-user)
-  - [Admin Unblocking a user](#Admin-unblocking-a-user)
   - [Delete your account](#Delete-your-account)
   - [Upload Profile Photo](#Upload-Profile-Photo)
 
@@ -68,13 +58,7 @@ Node, Express, MongoDB, Mongoose, JWT
   - [Update post](#Update-Comment)
   - [Delete post](#Delete-Comment)
 
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://link-to-project
-```
+## Run the project
 
 Go to the project directory
 
@@ -91,28 +75,28 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run server
+   node server.js
 ```
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+The mandatory enviroment variable require to run the project is MONGODB_URL, and the additional variables are 
+CLOUDINARY_CLOUD_NAME
+CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRECT_KEY, this additional variables are used for file uploading feature
 
-`MONGODB_URL`
-
-##### baseURL = `https://blog-api-v3-inovotek.onrender.com/`
 
 # API Authentication
 
 Some endpoints may require authentication for example. To create a create/delete/update post, you need to register your API client and obtain an access token.
 
-The endpoints that require authentication expect a bearer token sent in the `Authorization header`.
+The endpoints that require authentication expect a bearer token sent in the Authorization header.
 
 **Example**:
 
 `Authorization: Bearer YOUR TOKEN`
 
-## Register a new API client
+## **Register a new API client**
 
 ```http
 POST /api/v1/users/register
@@ -128,11 +112,11 @@ The request body needs to be in JSON format.
 POST /api/v1/users/login
 ```
 
-| Parameter        | Type     | Description   | Required |
-| :--------------- | :------- | :------------ | :------- |
-| `authentication` | `string` | Your token    | no       |
-| `email`          | `string` | Your email    | yes      |
-| `password`       | `string` | Your password | yes      |
+| Parameter        | Type     | Description   | 
+| :--------------- | :------- | :------------ |
+| authentication | string | Your token    |
+| email          | string | Your email    | 
+| password       | string | Your password | 
 
 Example request body:
 
@@ -149,9 +133,9 @@ Example request body:
 GET /api/v1/users/profile
 ```
 
-| Parameter        | Type     | Description | Required |
-| :--------------- | :------- | :---------- | :------- |
-| `authentication` | `string` | Your token  | yes      |
+| Parameter        | Type     | Description |
+| :--------------- | :------- | :---------- | 
+| `authentication` | `string` | Your token  |
 
 ## **Get all users**
 
@@ -159,9 +143,9 @@ GET /api/v1/users/profile
 GET /api/v1/users/users
 ```
 
-| Parameter        | Type     | Description | Required |
-| :--------------- | :------- | :---------- | :------- |
-| `authentication` | `string` | Your token  | no       |
+| Parameter        | Type     | Description | 
+| :--------------- | :------- | :---------- | 
+| authentication | string | Your token  |
 
 ## **view a user profile**
 
@@ -169,21 +153,21 @@ GET /api/v1/users/users
 GET /api/v1/users/profile-viewers/:id
 ```
 
-| Parameter        | Type     | Description                                 | Required |
-| :--------------- | :------- | :------------------------------------------ | :------- |
-| `authentication` | `string` | Your token                                  | yes      |
-| `id`             | `string` | ID of the user you want to view his profile | yes      |
+| Parameter        | Type     | Description                                 | 
+| :--------------- | :------- | :------------------------------------------ | 
+| authentication | string | Your token                                  | 
+| id             | string | ID of the user you want to view his profile | 
 
-#### **Following a user**
+#### Following a user
 
 ```http
 GET /api/v1/users/following/:id
 ```
 
-| Parameter        | Type     | Description                       | Required |
-| :--------------- | :------- | :-------------------------------- | :------- |
-| `authentication` | `string` | Your token                        | yes      |
-| `id`             | `string` | ID of the user you want to follow | yes      |
+| Parameter        | Type     | Description                       |
+| :--------------- | :------- | :-------------------------------- |
+| authentication | string | Your token                        | 
+| id             | string | ID of the user you want to follow | 
 
 ## **UnFollowing a user**
 
@@ -191,10 +175,10 @@ GET /api/v1/users/following/:id
 GET /api/v1/users/unfollowing/:id
 ```
 
-| Parameter        | Type     | Description                       | Required |
-| :--------------- | :------- | :-------------------------------- | :------- |
-| `authentication` | `string` | Your token                        | yes      |
-| `id`             | `string` | ID of the user you want to follow | yes      |
+| Parameter        | Type     | Description                       | 
+| :--------------- | :------- | :-------------------------------- | 
+| authentication | string | Your token                        | 
+| id             | string | ID of the user you want to follow |
 
 ## **Update user password**
 
@@ -202,10 +186,10 @@ GET /api/v1/users/unfollowing/:id
 PUT /api/v1/users/update-password
 ```
 
-| Parameter        | Type     | Description         | Required |
-| :--------------- | :------- | :------------------ | :------- |
-| `authentication` | `string` | Your token          | yes      |
-| `password`       | `string` | Enter your password | yes      |
+| Parameter        | Type     | Description         | 
+| :--------------- | :------- | :------------------ | 
+| authentication | string | Your token          | 
+| password       | string | Enter your password | 
 
 Example request body:
 
@@ -221,12 +205,12 @@ Example request body:
 PUT /api/v1/users
 ```
 
-| Parameter        | Type     | Description          | Required |
-| :--------------- | :------- | :------------------- | :------- |
-| `authentication` | `string` | Your token           | yes      |
-| `email`          | `string` | Enter your email     | no       |
-| `firstname`      | `string` | Enter your firstname | no       |
-| `lastname`       | `string` | Enter your lastname  | no       |
+| Parameter        | Type     | Description          | 
+| :--------------- | :------- | :------------------- | 
+| authentication | string | Your token           | 
+| email          | string | Enter your email     | 
+| firstname      | string | Enter your firstname | 
+| lastname       | string | Enter your lastname  |
 
 Example request body:
 
@@ -244,10 +228,10 @@ Example request body:
 PUT /api/v1/users/block/:id
 ```
 
-| Parameter        | Type     | Description                      | Required |
-| :--------------- | :------- | :------------------------------- | :------- |
-| `authentication` | `string` | Your token                       | yes      |
-| `id`             | `string` | Id of the user you want to block | yes      |
+| Parameter        | Type     | Description                      | 
+| :--------------- | :------- | :------------------------------- | 
+| authentication | string | Your token                       | 
+| id             | string | Id of the user you want to block |
 
 ## **Unblock user**
 
@@ -255,32 +239,11 @@ PUT /api/v1/users/block/:id
 PUT /api/v1/users/unblock/:id
 ```
 
-| Parameter        | Type     | Description                        | Required |
-| :--------------- | :------- | :--------------------------------- | :------- |
-| `authentication` | `string` | Your token                         | yes      |
-| `id`             | `string` | Id of the user you want to unblock | yes      |
+| Parameter        | Type     | Description                        | 
+| :--------------- | :------- | :--------------------------------- | 
+| authentication | `string | Your token                         | 
+| id             | `string | Id of the user you want to unblock | 
 
-## **Admin blocking a user**
-
-```http
-PUT /api/v1/users/admin-block/:id
-```
-
-| Parameter        | Type     | Description                      | Required |
-| :--------------- | :------- | :------------------------------- | :------- |
-| `authentication` | `string` | Your token                       | yes      |
-| `id`             | `string` | Id of the user you want to block | yes      |
-
-## **Admin unblocking a user**
-
-```http
-PUT /api/v1/users/admin-unblock/:id
-```
-
-| Parameter        | Type     | Description                        | Required |
-| :--------------- | :------- | :--------------------------------- | :------- |
-| `authentication` | `string` | Your token                         | yes      |
-| `id`             | `string` | Id of the user you want to unblock | yes      |
 
 ## **Delete your account**
 
@@ -288,9 +251,9 @@ PUT /api/v1/users/admin-unblock/:id
   DELETE /api/v1/users/delete-account
 ```
 
-| Parameter        | Type     | Description | Required |
-| :--------------- | :------- | :---------- | :------- |
-| `authentication` | `string` | Your token  | yes      |
+| Parameter        | Type     | Description | 
+| :--------------- | :------- | :---------- | 
+| authentication | string | Your token  | 
 
 ## **Upload Profile Photo**
 
@@ -298,10 +261,10 @@ PUT /api/v1/users/admin-unblock/:id
   DELETE /api/v1/users/profile-photo-upload
 ```
 
-| Parameter        | Type     | Description     | Required |
-| :--------------- | :------- | :-------------- | :------- |
-| `authentication` | `string` | Your token      | yes      |
-| `profilePhoto`   | `string` | Image to upload | yes      |
+| Parameter        | Type     | Description     |
+| :--------------- | :------- | :-------------- |
+| `authentication` | `string` | Your token      | 
+| `profilePhoto`   | `string` | Image to upload |
 
 # **Posts API Refeference**
 
@@ -311,13 +274,13 @@ PUT /api/v1/users/admin-unblock/:id
   POST /api/v1/posts
 ```
 
-| Parameter        | Type     | Description        | Required |
-| :--------------- | :------- | :----------------- | :------- |
-| `authentication` | `string` | Your token         | yes      |
-| `title`          | `string` | Post title         | yes      |
-| `description`    | `string` | Post description   | yes      |
-| `category`       | `string` | ID of the category | yes      |
-| `photo`          | `string` | Image of the post  | yes      |
+| Parameter        | Type     | Description        |
+| :--------------- | :------- | :----------------- | 
+| `authentication` | `string` | Your token         | 
+| `title`          | `string` | Post title         | 
+| `description`    | `string` | Post description   | 
+| `category`       | `string` | ID of the category |
+| `photo`          | `string` | Image of the post  | 
 
 Example request body:
 
@@ -379,14 +342,14 @@ Example request body:
   PUT /api/v1/posts/:id
 ```
 
-| Parameter        | Type     | Description             | Required |
-| :--------------- | :------- | :---------------------- | :------- |
-| `authentication` | `string` | Your token              | yes      |
-| `id`             | `string` | ID of the post          | yes      |
-| `title`          | `string` | title of the post       | yes      |
-| `description`    | `string` | description of the post | yes      |
-| `category`       | `string` | category of the post    | yes      |
-| `photo`          | `string` | photo of the post       | yes      |
+| Parameter        | Type     | Description             | 
+| :--------------- | :------- | :---------------------- | 
+| `authentication` | `string` | Your token              | 
+| `id`             | `string` | ID of the post          | 
+| `title`          | `string` | title of the post       | 
+| `description`    | `string` | description of the post | 
+| `category`       | `string` | category of the post    |
+| `photo`          | `string` | photo of the post       | 
 
 Example request body:
 
@@ -405,10 +368,10 @@ Example request body:
   GET /api/v1/posts/dislikes/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    | 
+| :--------------- | :------- | :------------- | 
+| `authentication` | `string` | Your token     | 
+| `id`             | `string` | ID of the post | 
 
 # **Comment API Reference**
 
@@ -440,25 +403,14 @@ Example request body:
   PUT /api/v1/comments/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    | 
+| :--------------- | :------- | :------------- |
+| `authentication` | `string` | Your token     | 
+| `id`             | `string` | ID of the post | 
 
 ## Feedback
 
-If you have any feedback, please reach out to us at support@inovoteksupport.com
+If you have any feedback, please reach out to us at tilkireddy@gmail.com
 
-![Logo](https://yt3.ggpht.com/kuG0t4b_bTsNnGHw-FQva380BdNJJylaMeMuXklJggO45T-mKajSCjNv3t2W0CYL-7xEz5N1AJA=s176-c-k-c0x00ffffff-no-rj)
 
-## 🔗 Social Links
 
-[![facebook](https://img.shields.io/badge/facebook-Code?style=for-the-badge&logo=facebook&logoColor=white&color=blue)](https://www.facebook.com/inovotekacademy/)
-
-[![youtube](https://img.shields.io/badge/youtube-Code?style=for-the-badge&logo=youtube&logoColor=redk&color=red)](https://www.youtube.com/@inovotek-academy)
-
-[![udemy](https://img.shields.io/badge/udemy-Code?style=for-the-badge&logo=udemy)](https://www.udemy.com/user/emmanuel-tweneboah-2/)
-
-## Author
-
-- [@I-Novotek Academy](https://www.youtube.com/@inovotek-academy)
