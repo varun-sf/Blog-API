@@ -263,8 +263,8 @@ PUT /api/v1/users/unblock/:id
 
 | Parameter        | Type     | Description     |
 | :--------------- | :------- | :-------------- |
-| `authentication` | `string` | Your token      | 
-| `profilePhoto`   | `string` | Image to upload |
+| authentication | string | Your token      | 
+| profilePhoto   | string | Image to upload |
 
 # **Posts API Refeference**
 
@@ -276,11 +276,11 @@ PUT /api/v1/users/unblock/:id
 
 | Parameter        | Type     | Description        |
 | :--------------- | :------- | :----------------- | 
-| `authentication` | `string` | Your token         | 
-| `title`          | `string` | Post title         | 
-| `description`    | `string` | Post description   | 
-| `category`       | `string` | ID of the category |
-| `photo`          | `string` | Image of the post  | 
+| authentication | string | Your token         | 
+| title          | string | Post title         | 
+| description`    | string | Post description   | 
+| category`       | string | ID of the category |
+| photo          | string | Image of the post  | 
 
 Example request body:
 
@@ -301,7 +301,7 @@ Example request body:
 
 | Parameter        | Type     | Description | 
 | :--------------- | :------- | :---------- | 
-| `authentication` | `string` | Your token  |
+| authentication | string | Your token  |
 
 ## **Get Single Post**
 
@@ -311,8 +311,8 @@ Example request body:
 
 | Parameter        | Type     | Description    | 
 | :--------------- | :------- | :------------- |
-| `authentication` | `string` | Your token     |
-| `id`             | `string` | ID of the post | 
+| authentication | string | Your token     |
+| id             | string | ID of the post | 
 
 ## **Toggle Post like**
 
@@ -322,8 +322,8 @@ Example request body:
 
 | Parameter        | Type     | Description    |
 | :--------------- | :------- | :------------- |
-| `authentication` | `string` | Your token     | 
-| `id`             | `string` | ID of the post | 
+| authentication | string | Your token     | 
+| id             | string | ID of the post | 
 
 ## **Toggle Post dislike**
 
@@ -333,8 +333,8 @@ Example request body:
 
 | Parameter        | Type     | Description    |
 | :--------------- | :------- | :------------- | 
-| `authentication` | `string` | Your token     | 
-| `id`             | `string` | ID of the post |
+| authentication | string | Your token     | 
+| id             | string | ID of the post |
 
 ## **Update Post**
 
@@ -344,12 +344,12 @@ Example request body:
 
 | Parameter        | Type     | Description             | 
 | :--------------- | :------- | :---------------------- | 
-| `authentication` | `string` | Your token              | 
-| `id`             | `string` | ID of the post          | 
-| `title`          | `string` | title of the post       | 
-| `description`    | `string` | description of the post | 
-| `category`       | `string` | category of the post    |
-| `photo`          | `string` | photo of the post       | 
+| authentication | string | Your token              | 
+| id             | string | ID of the post          | 
+| title          | string | title of the post       | 
+| description    | string | description of the post | 
+| category       | string | category of the post    |
+| photo          | string | photo of the post       | 
 
 Example request body:
 
@@ -370,8 +370,8 @@ Example request body:
 
 | Parameter        | Type     | Description    | 
 | :--------------- | :------- | :------------- | 
-| `authentication` | `string` | Your token     | 
-| `id`             | `string` | ID of the post | 
+| authentication | string | Your token     | 
+| id             | string | ID of the post | 
 
 # **Comment API Reference**
 
@@ -383,8 +383,8 @@ Example request body:
 
 | Parameter        | Type     | Description    |
 | :--------------- | :------- | :------------- | 
-| `authentication` | `string` | Your token     | 
-| `id`             | `string` | ID of the post | 
+| authentication | string | Your token     | 
+| id             | string | ID of the post | 
 
 ## **Delete Comment**
 
@@ -394,8 +394,8 @@ Example request body:
 
 | Parameter        | Type     | Description       | 
 | :--------------- | :------- | :---------------- | 
-| `authentication` | `string` | Your token        |
-| `id`             | `string` | ID of the comment |
+| authentication | string | Your token        |
+| id             | string | ID of the comment |
 
 ## **Update Comment**
 
@@ -405,8 +405,8 @@ Example request body:
 
 | Parameter        | Type     | Description    | 
 | :--------------- | :------- | :------------- |
-| `authentication` | `string` | Your token     | 
-| `id`             | `string` | ID of the post | 
+| authentication | string | Your token     | 
+| id            | string | ID of the post | 
 
 ## Feedback
 
