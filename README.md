@@ -299,9 +299,9 @@ Example request body:
   GET /api/v1/posts
 ```
 
-| Parameter        | Type     | Description | Required |
-| :--------------- | :------- | :---------- | :------- |
-| `authentication` | `string` | Your token  | no       |
+| Parameter        | Type     | Description | 
+| :--------------- | :------- | :---------- | 
+| `authentication` | `string` | Your token  |
 
 ## **Get Single Post**
 
@@ -309,10 +309,10 @@ Example request body:
   GET /api/v1/posts/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    | 
+| :--------------- | :------- | :------------- |
+| `authentication` | `string` | Your token     |
+| `id`             | `string` | ID of the post | 
 
 ## **Toggle Post like**
 
@@ -320,10 +320,10 @@ Example request body:
   GET /api/v1/postslikes/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    |
+| :--------------- | :------- | :------------- |
+| `authentication` | `string` | Your token     | 
+| `id`             | `string` | ID of the post | 
 
 ## **Toggle Post dislike**
 
@@ -331,10 +331,10 @@ Example request body:
   GET /api/v1/posts/dislikes/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    |
+| :--------------- | :------- | :------------- | 
+| `authentication` | `string` | Your token     | 
+| `id`             | `string` | ID of the post |
 
 ## **Update Post**
 
@@ -381,10 +381,10 @@ Example request body:
   POST /api/v1/comments/:id
 ```
 
-| Parameter        | Type     | Description    | Required |
-| :--------------- | :------- | :------------- | :------- |
-| `authentication` | `string` | Your token     | yes      |
-| `id`             | `string` | ID of the post | yes      |
+| Parameter        | Type     | Description    |
+| :--------------- | :------- | :------------- | 
+| `authentication` | `string` | Your token     | 
+| `id`             | `string` | ID of the post | 
 
 ## **Delete Comment**
 
@@ -392,10 +392,10 @@ Example request body:
   DELETE /api/v1/comments/:id
 ```
 
-| Parameter        | Type     | Description       | Required |
-| :--------------- | :------- | :---------------- | :------- |
-| `authentication` | `string` | Your token        | yes      |
-| `id`             | `string` | ID of the comment | yes      |
+| Parameter        | Type     | Description       | 
+| :--------------- | :------- | :---------------- | 
+| `authentication` | `string` | Your token        |
+| `id`             | `string` | ID of the comment |
 
 ## **Update Comment**
 
