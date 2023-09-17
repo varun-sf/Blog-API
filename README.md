@@ -3,6 +3,8 @@
 ## Tech Stack
 
 Node, Express, MongoDB, Mongoose, JWT
+Modules - express,mongoose,dotenv,bcryptjs@2.4.3,jsonwebtoken,multer
+Photo Storage - Cloudinary
 
 # API FEATURES
 
@@ -101,6 +103,12 @@ The endpoints that require authentication expect a bearer token sent in the Auth
 ```http
 POST /api/v1/users/register
 ```
+| Parameter        | Type     | Description   | 
+| :--------------- | :------- | :------------ |
+|  firstname | string | Your first name    |
+| lastname   | string | Your lastname   | 
+| email      | string | Your email | 
+|Password    |string  |Your password|
 
 The request body needs to be in JSON format.
 

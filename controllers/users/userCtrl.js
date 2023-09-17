@@ -19,7 +19,9 @@ const userRegisterCtrl = async (req, res, next) => {
     }
     
     const salt = await bcrypt.genSalt(10);
+    // console.log(salt);
     const hashedPassword = await bcrypt.hash(password, salt);
+    // console.log(hashedPassword);
     const user = await User.create({
       firstname,
       lastname,
