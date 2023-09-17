@@ -4,6 +4,8 @@ const categoryRouter = require("./routes/categories/categoryRoutes");
 const commentRouter = require("./routes/comments/commentRoutes");
 const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
+const User = require("./model/User/User");
+
 
 require("dotenv").config();
 require("./config/dbConnect");
@@ -12,6 +14,16 @@ const app = express();
 
 //middlewares
 app.use(express.json()); //pass incoming payload
+
+app.get("/",async(req,res) =>{
+  try{
+    var val ="https://github.com/varun-sf/Blog-API#readme";
+    res.send("To run API requests on the url follow details mentioned in Readme.md in "+'<a href="' + val + '">' + "Github"+ '</a>'); 
+  }
+  catch(error){
+     res.json(error);
+  }
+})
 
 //routes
 //----

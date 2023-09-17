@@ -146,10 +146,12 @@ const followingCtrl = async (req, res, next) => {
 const usersCtrl = async (req, res, next) => {
   try {
     const users = await User.find();
+
     res.json({
       status: "success",
       data: users,
     });
+    
   } catch (error) {
     next(appErr(error.message));
   }
