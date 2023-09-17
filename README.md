@@ -2,8 +2,8 @@
 
 ## Tech Stack
 
-Node, Express, MongoDB, Mongoose, JWT
-Modules - express,mongoose,dotenv,bcryptjs@2.4.3,jsonwebtoken,multer
+Node, Express, MongoDB, Mongoose, JWT\
+Modules - express,mongoose,dotenv,bcryptjs@2.4.3,jsonwebtoken,multer\
 Photo Storage - Cloudinary
 
 # API FEATURES
